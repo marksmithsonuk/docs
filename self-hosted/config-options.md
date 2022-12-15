@@ -577,13 +577,15 @@ When using an AWS service that is configured to use instance metadata (e.g. EC2/
 `STORAGE_S3_KEY`, `STORAGE_S3_SECRET` and `STORAGE_S3_REGION` environment variables. You will need an IAM instance 
 profile or role attached to your instance/task with the following permissions to access your bucket:
 
-`s3:GetObject,
+```
+s3:GetObject,
 s3:GetObjectTagging,
 s3:PutObject,
 s3:PutObjectTagging,
 s3:PutObjectAcl,
 s3:PutObjectVersionAcl,
-s3:DeleteObject'
+s3:DeleteObject
+```
 
 :::
 
