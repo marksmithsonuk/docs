@@ -571,6 +571,22 @@ Based on your configured driver, you must also provide the following configurati
 | `STORAGE_<LOCATION>_ACL`                    | S3 ACL                    | --                 |
 | `STORAGE_<LOCATION>_SERVER_SIDE_ENCRYPTION` | S3 Server Side Encryption | --                 |
 
+::: tip Bucket credentials
+
+When using an AWS service that is configured to use instance metadata (e.g. EC2/ECS) you do not need to supply the
+`STORAGE_S3_KEY`, `STORAGE_S3_SECRET` and `STORAGE_S3_REGION` environment variables. You will need an IAM instance 
+profile or role attached to your instance/task with the following permissions to access your bucket:
+
+`s3:GetObject,
+s3:GetObjectTagging,
+s3:PutObject,
+s3:PutObjectTagging,
+s3:PutObjectAcl,
+s3:PutObjectVersionAcl,
+s3:DeleteObject'
+
+:::
+
 ### Azure (`azure`)
 
 | Variable                            | Description                | Default Value                                 |
